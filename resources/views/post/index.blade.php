@@ -7,12 +7,12 @@
 				@foreach ($posts as $post)
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							{{ $post->title }}
+							<a href="{{ route('post.show', $post) }}">{{ $post->title }}</a>
 
 							<div class="pull-right">
 								<form action="{{ route('post.destroy', $post) }}" method="post">
 									{{ csrf_field() }}
-									<a href="{{ route('post.edit', $post) }}" class="btn btn-xs btn-primary">Edit</a>
+									<a href="{{ route('post.edit', $post) }}" class="btn btn-xs btn-success">Edit</a>
 									{{ method_field('DELETE') }}
 									<button type="submit" class="btn btn-xs btn-danger">Hapus</button>
 								</form>
@@ -20,7 +20,7 @@
 						</div>
 
 						<div class="panel-body">
-							<p>{{ $post->content }}</p>
+							<p>{{ str_limit($post->content, 100, ' ...') }}</p>
 						</div>
 					</div>
 				@endforeach
