@@ -21,6 +21,13 @@
 						Tambahkan Komentar
 					</div>
 
+					@foreach ($post->comments()->get() as $comment)
+						<div class="panel-body">
+							<h4>{{ $comment->user->name }} - {{ $comment->created_at->diffForHumans() }}</h4>
+							<p>{{ $comment->message }}</p>
+						</div>
+					@endforeach
+
 					<div class="panel-body">
 						<form action="{{ route('post.comment.store', $post) }}" method="post" class="form-horizontal">
 							{{ csrf_field() }}
