@@ -12,6 +12,7 @@
 							<div class="pull-right">
 								<form action="{{ route('post.destroy', $post) }}" method="post">
 									{{ csrf_field() }}
+									<a href="{{ route('post.edit', $post) }}" class="btn btn-xs btn-primary">Edit</a>
 									{{ method_field('DELETE') }}
 									<button type="submit" class="btn btn-xs btn-danger">Hapus</button>
 								</form>
