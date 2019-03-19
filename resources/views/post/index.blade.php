@@ -7,7 +7,7 @@
 				@foreach ($posts as $post)
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<a href="{{ route('post.show', $post) }}">{{ $post->title }}</a>
+							{{ $post->title }}
 
 							<div class="pull-right">
 								<form action="{{ route('post.destroy', $post) }}" method="post">
@@ -21,6 +21,7 @@
 
 						<div class="panel-body">
 							<p>{{ str_limit($post->content, 100, ' ...') }}</p>
+							<a href="{{ route('post.show', $post) }}" class="btn btn-xs btn-primary">Read More</a>
 						</div>
 					</div>
 				@endforeach
