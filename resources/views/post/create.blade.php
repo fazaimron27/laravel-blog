@@ -4,9 +4,14 @@
 	<div class="container">
 		<form action="{{ route('post.store') }}" method="post">
 			{{ csrf_field() }}
-			<div class="form-group">
+			<div class="form-group has-feedback{{ $errors->has('title') ? ' has-error' : '' }}">
 				<label for="title">Title</label>
-				<input type="text" class="form-control" name="title" placeholder="Post title">
+				<input type="text" class="form-control" name="title" placeholder="Post title" value="{{ old('title') }}">
+				@if ($errors->has('title'))
+					<span class="help-block">
+						<p>{{ $errors->first('title') }}</p>
+					</span>
+				@endif
 			</div>
 
 			<div class="form-group">
@@ -18,9 +23,14 @@
 				</select>
 			</div>
 
-			<div class="form-group">
+			<div class="form-group has-feedback{{ $errors->has('content') ? ' has-error' : '' }}">
 				<label for="content">Content</label>
-				<textarea name="content" id="" cols="30" rows="5" class="form-control" placeholder="Post content"></textarea>
+				<textarea name="content" id="" cols="30" rows="5" class="form-control" placeholder="Post content">{{ old('content') }}</textarea>
+				@if ($errors->has('content'))
+					<span class="help-block">
+						<p>{{ $errors->first('content') }}</p>
+					</span>
+				@endif
 			</div>
 
 			<div class="form-group">
