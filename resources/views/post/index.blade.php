@@ -7,7 +7,7 @@
 				@foreach ($posts as $post)
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							{{ $post->title }}
+							{{ $post->title }} | <small>{{ $post->created_at->diffForHumans() }}</small>
 
 							<div class="pull-right">
 								<form action="{{ route('post.destroy', $post) }}" method="post">
@@ -25,6 +25,9 @@
 						</div>
 					</div>
 				@endforeach
+
+					{!! $posts->render() !!}
+
 			</div>
 		</div>
 	</div>

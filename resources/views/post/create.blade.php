@@ -34,7 +34,8 @@
 			</div>
 
 			<div class="form-group">
-				<input type="submit" class="btn btn-primary" value="Save">
+				<input type="submit" class="btn btn-primary" value="Create">
+				<a href="{{ route('post.index') }}" class="btn btn-primary pull-right">Kembali</a>
 			</div>
 		</form>
 	</div>
